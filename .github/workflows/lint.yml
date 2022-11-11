@@ -1,0 +1,18 @@
+---
+name: Lint
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: markdownlint
+        uses: DavidAnson/markdownlint-cli2-action@v5
+        with:
+          globs: |
+            LICENSE
+            README.md
